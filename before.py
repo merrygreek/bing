@@ -16,8 +16,8 @@ url = 'http://bing.ioliu.cn/v1?d='
 
 for i in [url + str(d) for d in range(0,267)]:
     r = requests.get(i).json()
-    imgurl = r['images'][0]['url']
-    name = 'B-' + r['images'][0]['attribute']
+    imgurl = r['data'][0]['url']
+    name = 'B-' + r['data'][0]['attribute']
     with open(name,'wb') as f:
         f.write(requests.get(imgurl).content)
     upload(name)
