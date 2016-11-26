@@ -14,7 +14,7 @@ def upload(key):
 
 url = 'http://bing.ioliu.cn/v1?d='
 
-for i in [url + str(d) for d in range(1,267)]:
+for i in [url + str(d) for d in range(1,266)]:
     r = requests.get(i).json()
     imgurl = r['data']['url']
     name = 'B-' + r['data']['enddate'] + '.jpg'
@@ -22,4 +22,4 @@ for i in [url + str(d) for d in range(1,267)]:
         if requests.get(imgurl).content:
             f.write(requests.get(imgurl).content)
             upload(name)
-    		os.remove(name)
+            os.remove(name)
