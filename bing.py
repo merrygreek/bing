@@ -6,8 +6,8 @@ import os
 def bing():
     url = 'http://bing.ioliu.cn/v1?d=0'
     r = requests.get(url).json()
-    imgurl = r['images'][0]['url']
-    keyurl = r['images'][0]['attribute']
+    imgurl = r['data'][0]['url']
+    keyurl = r['data'][0]['attribute']
     name = 'B-' + keyurl + '.jpg'
     content = requests.get(imgurl).content
     with open(name,'wb') as f:
