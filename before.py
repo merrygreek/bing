@@ -14,10 +14,10 @@ def upload(key):
 
 url = 'http://bing.ioliu.cn/v1?d='
 
-for i in [url + str(d) for d in range(0,267)]:
+for i in [url + str(d) for d in range(1,267)]:
     r = requests.get(i).json()
     imgurl = r['data'][0]['url']
-    name = 'B-' + r['data'][0]['attribute']
+    name = 'B-' + r['data'][0]['enddate']
     with open(name,'wb') as f:
         f.write(requests.get(imgurl).content)
     upload(name)
